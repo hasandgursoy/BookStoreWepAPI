@@ -14,7 +14,7 @@ namespace Webapi.Controllers
             
             new Book{
                 ID  = 1,
-                Title = "Lean Startup",
+                Title = "Herland",
                 GenreId = 1, // Personal Growth
                 PageCount = 200,
                 PublisDate = new DateTime(2001,06,12),
@@ -50,10 +50,10 @@ namespace Webapi.Controllers
         [HttpGet("{id}")]
         public Book GetById(int id){
 
-            var book = BookList.Where(book => book.ID == id).SingleOrDefault();
+            var book = BookList.Where(x => x.ID == id).SingleOrDefault();
             return book == null? BookList[0] : book ;
         }
-
+ 
         // Sadece Bir tane parametresiz httpget kullanılabilir.
         // Normal HttpGet daha mantıklı bir yol
         // [HttpGet]
@@ -62,6 +62,45 @@ namespace Webapi.Controllers
         //     var book = BookList.Where(book => book.ID == Convert.ToInt32(id)).SingleOrDefault();
         //     return book == null? BookList[0] : book ;
         // }
+
+        //// Post ////
+        [HttpPost]
+        public IActionResult AddBook([FromBody] Book newBook){
+
+            var book = BookList.SingleOrDefault(x => x.Title == newBook.Title);
+            if(book is not null){
+                return BadRequest();
+            }
+
+            BookList.Add(newBook);
+            return Ok();
+
+
+        }
+
+
+        //// Put ////
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBook(int id,[FromBody] Book updatedBook){
+
+            var book = BookList.SingleOrDefault(x => x.ID == id);
+
+            if(book is null){
+                return BadRequest();
+            }
+
+            book.GenreId = updatedBook.GenreId != default ? updatedBook.GenreId : book.GenreId;
+            book.PageCount = updatedBook.PageCount != default ? updatedBook.PageCount : book.PageCount;
+            book.PublisDate = updatedBook.PublisDate != default ? updatedBook.PublisDate : book.PublisDate;
+            book.Title = updatedBook.Title != default ? updatedBook.Title : book.Title;
+
+            return Ok();
+
+
+
+        }
+
 
     }
 
