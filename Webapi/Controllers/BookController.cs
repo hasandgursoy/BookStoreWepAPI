@@ -49,7 +49,7 @@ namespace Webapi.Controllers
         [HttpGet]
         public List<Book> GetBooks(){
 
-            List<Book> bookList = BookList.OrderBy(x => x.ID).ToList<Book>();
+            List<Book> bookList = _context.Books.OrderBy(x => x.ID).ToList<Book>();
             return bookList;
         }
 
@@ -57,8 +57,8 @@ namespace Webapi.Controllers
         [HttpGet("{id}")]
         public Book GetById(int id){
 
-            var book = BookList.Where(x => x.ID == id).SingleOrDefault();
-            return book == null? BookList[0] : book ;
+            var book = _context.Books.Where(x => x.ID == id).SingleOrDefault();
+            return book;
         }
  
         // Sadece Bir tane parametresiz httpget kullanılabilir.
@@ -74,12 +74,13 @@ namespace Webapi.Controllers
         [HttpPost]
         public IActionResult AddBook([FromBody] Book newBook){
 
-            var book = BookList.SingleOrDefault(x => x.Title == newBook.Title);
+            var book = _context.Books.SingleOrDefault(x => x.Title == newBook.Title);
             if(book is not null){
                 return BadRequest();
             }
 
-            BookList.Add(newBook);
+            _context.Books.Add(newBook);
+            _context.SaveChanges();
             return Ok();
 
 
@@ -91,7 +92,7 @@ namespace Webapi.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id,[FromBody] Book updatedBook){
 
-            var book = BookList.SingleOrDefault(x => x.ID == id);
+            var book = _context.Books.SingleOrDefault(x => x.ID == id);
 
             if(book is null){
                 return BadRequest();
@@ -101,7 +102,7 @@ namespace Webapi.Controllers
             book.PageCount = updatedBook.PageCount != default ? updatedBook.PageCount : book.PageCount;
             book.PublisDate = updatedBook.PublisDate != default ? updatedBook.PublisDate : book.PublisDate;
             book.Title = updatedBook.Title != default ? updatedBook.Title : book.Title;
-
+            _context.SaveChanges();
             return Ok();
 
 
@@ -114,13 +115,14 @@ namespace Webapi.Controllers
 
         public IActionResult DeleteBook(int id){
 
-            var book = BookList.SingleOrDefault(x => x.ID == id);
+            var book = _context.Books.SingleOrDefault(x => x.ID == id);
 
             if(book is null){
                 return BadRequest();
             }
 
-            BookList.Remove(book);
+            _context.Books.Remove(book);
+            _context.SaveChanges();
             return Ok();
 
         }

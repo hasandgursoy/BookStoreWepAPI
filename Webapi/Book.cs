@@ -1,11 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi
 {
 
     public class Book
     {
-
+        // Auto İncrement for database 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         public string Title { get; set; }
