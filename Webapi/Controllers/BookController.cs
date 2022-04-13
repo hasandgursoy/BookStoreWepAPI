@@ -1,6 +1,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApi;
+using WebApi.DBOperations;
 
 namespace Webapi.Controllers
 {
@@ -9,32 +10,38 @@ namespace Webapi.Controllers
     [Route("[controller]s")]
     public class BookController:ControllerBase
     {
-        
-        private static List<Book> BookList = new List<Book>(){
-            
-            new Book{
-                ID  = 1,
-                Title = "Herland",
-                GenreId = 1, // Personal Growth
-                PageCount = 200,
-                PublisDate = new DateTime(2001,06,12),
-            },
-            new Book{
-                ID  = 2,
-                Title = "Lean Startup",
-                GenreId = 2, // Science Fiction
-                PageCount = 250,
-                PublisDate = new DateTime(2010,05,23),
-            },
-            new Book{
-                ID  = 3,
-                Title = "Dune",
-                GenreId = 3, // Science Fiction
-                PageCount = 540,
-                PublisDate = new DateTime(2002,12,21),
-            },
+        private readonly BookStoreDBContext _context;
 
-        };
+        public BookController(BookStoreDBContext context){
+            _context = context;
+        }
+
+
+        // private static List<Book> BookList = new List<Book>(){
+            
+        //     new Book{
+        //         ID  = 1,
+        //         Title = "Herland",
+        //         GenreId = 1, // Personal Growth
+        //         PageCount = 200,
+        //         PublisDate = new DateTime(2001,06,12),
+        //     },
+        //     new Book{
+        //         ID  = 2,
+        //         Title = "Lean Startup",
+        //         GenreId = 2, // Science Fiction
+        //         PageCount = 250,
+        //         PublisDate = new DateTime(2010,05,23),
+        //     },
+        //     new Book{
+        //         ID  = 3,
+        //         Title = "Dune",
+        //         GenreId = 3, // Science Fiction
+        //         PageCount = 540,
+        //         PublisDate = new DateTime(2002,12,21),
+        //     },
+
+        // };
 
 
         // Http Requestlerini karşılayan endpointleri yazalım.
@@ -101,6 +108,22 @@ namespace Webapi.Controllers
 
         }
 
+        //// Delete ////
+
+        [HttpDelete("{id}")]
+
+        public IActionResult DeleteBook(int id){
+
+            var book = BookList.SingleOrDefault(x => x.ID == id);
+
+            if(book is null){
+                return BadRequest();
+            }
+
+            BookList.Remove(book);
+            return Ok();
+
+        }
 
     }
 

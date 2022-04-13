@@ -1,15 +1,30 @@
 {
   "version": 2,
-  "dgSpecHash": "bSLI/ZAambGZRZrHen3KmiANygFe8gHMfEXfnNelW31gflfDBGUbtvvA5v9VnJgvwywQbR4n0OkEh8NG2Zi1FA==",
+  "dgSpecHash": "MMbJSd/8EzjyYLxrTDdTcOeusaJaaby7K/5D9lq4bn+h+CECBDiZg/4AUEa5Lf+sFsLeQM8Bs/MFpJmGYFGlFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.7.0.0-preview.2.22153.1.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.abstractions.7.0.0-preview.2.22153.1.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.analyzers.7.0.0-preview.2.22153.1.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.inmemory.7.0.0-preview.2.22153.1.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0-preview.2.22152.2\\microsoft.extensions.caching.abstractions.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0-preview.2.22152.2\\microsoft.extensions.caching.memory.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0-preview.2.22152.2\\microsoft.extensions.dependencyinjection.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0-preview.2.22152.2\\microsoft.extensions.dependencyinjection.abstractions.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0-preview.2.22152.2\\microsoft.extensions.logging.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0-preview.2.22152.2\\microsoft.extensions.logging.abstractions.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.options\\7.0.0-preview.2.22152.2\\microsoft.extensions.options.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0-preview.2.22152.2\\microsoft.extensions.primitives.7.0.0-preview.2.22152.2.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\PENTESTER\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\system.collections.immutable\\7.0.0-preview.2.22152.2\\system.collections.immutable.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.0-preview.2.22152.2\\system.diagnostics.diagnosticsource.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\7.0.0-preview.2.22152.2\\system.runtime.compilerservices.unsafe.7.0.0-preview.2.22152.2.nupkg.sha512"
   ],
   "logs": []
 }
