@@ -1,24 +1,29 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Webapi.BookOperations.CreateBook;
+using Webapi.BookOperations.GetBooks;
+using Webapi.BookOperations.GetIdBook;
+using Webapi.BookOperations.UpdateBook;
 using WebApi;
 using WebApi.DBOperations;
 
 namespace Webapi.Controllers
 {
-    
+
     [ApiController]
     [Route("[controller]s")]
-    public class BookController:ControllerBase
+    public class BookController : ControllerBase
     {
         private readonly BookStoreDBContext _context;
 
-        public BookController(BookStoreDBContext context){
+        public BookController(BookStoreDBContext context)
+        {
             _context = context;
         }
 
 
         // private static List<Book> BookList = new List<Book>(){
-            
+
         //     new Book{
         //         ID  = 1,
         //         Title = "Herland",
@@ -47,20 +52,39 @@ namespace Webapi.Controllers
         // Http Requestlerini karşılayan endpointleri yazalım.
         // Bütün book listesini dönen method (endpoint)
         [HttpGet]
-        public List<Book> GetBooks(){
+        public IActionResult GetBooks()
+        {
 
-            List<Book> bookList = _context.Books.OrderBy(x => x.ID).ToList<Book>();
-            return bookList;
+            GetBooksQuery query = new GetBooksQuery(_context);
+            var result = query.Handle();
+            return Ok(result);
         }
 
         // Id'ye göre book dönen method
         [HttpGet("{id}")]
-        public Book GetById(int id){
+        public IActionResult GetById(int id)
+        {
 
-            var book = _context.Books.Where(x => x.ID == id).SingleOrDefault();
-            return book;
+            GetIdBook vm = new GetIdBook(_context);
+
+            try
+            {
+                vm.bookID = id;
+                var result = vm.Handle();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+
+
+
+
+
         }
- 
+
         // Sadece Bir tane parametresiz httpget kullanılabilir.
         // Normal HttpGet daha mantıklı bir yol
         // [HttpGet]
@@ -72,39 +96,43 @@ namespace Webapi.Controllers
 
         //// Post ////
         [HttpPost]
-        public IActionResult AddBook([FromBody] Book newBook){
+        public IActionResult AddBook([FromBody] CreateBookModel newBook)
+        {
 
-            var book = _context.Books.SingleOrDefault(x => x.Title == newBook.Title);
-            if(book is not null){
-                return BadRequest();
+            try
+            {
+                CreateBookCommand command = new CreateBookCommand(_context);
+                command.Model = newBook;
+                command.Handle();
             }
+            catch (Exception ex)
+            {
 
-            _context.Books.Add(newBook);
-            _context.SaveChanges();
+                return BadRequest(ex.Message);
+            }
             return Ok();
-
-
         }
 
 
         //// Put ////
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id,[FromBody] Book updatedBook){
+        public IActionResult UpdatedBook(int id, [FromBody] UpdateBookModels updatedBook)
+        {
 
-            var book = _context.Books.SingleOrDefault(x => x.ID == id);
-
-            if(book is null){
-                return BadRequest();
+            try
+            {
+                UpdateBooks book = new UpdateBooks(_context);
+                book.updateBookModels = updatedBook;
+                book.ID = id;
+                book.Handle();
             }
+            catch (Exception ex)
+            {
 
-            book.GenreId = updatedBook.GenreId != default ? updatedBook.GenreId : book.GenreId;
-            book.PageCount = updatedBook.PageCount != default ? updatedBook.PageCount : book.PageCount;
-            book.PublisDate = updatedBook.PublisDate != default ? updatedBook.PublisDate : book.PublisDate;
-            book.Title = updatedBook.Title != default ? updatedBook.Title : book.Title;
-            _context.SaveChanges();
+                return BadRequest(ex.Message);
+            }
             return Ok();
-
 
 
         }
@@ -113,11 +141,13 @@ namespace Webapi.Controllers
 
         [HttpDelete("{id}")]
 
-        public IActionResult DeleteBook(int id){
+        public IActionResult DeleteBook(int id)
+        {
 
             var book = _context.Books.SingleOrDefault(x => x.ID == id);
 
-            if(book is null){
+            if (book is null)
+            {
                 return BadRequest();
             }
 
