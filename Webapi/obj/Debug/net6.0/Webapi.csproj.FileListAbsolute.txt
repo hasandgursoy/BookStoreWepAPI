@@ -39,3 +39,5 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.Exte
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

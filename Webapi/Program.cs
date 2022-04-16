@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Webapi.DBOperations;
 using WebApi.DBOperations;
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BookStoreDBContext>(
     options=>options.UseInMemoryDatabase(databaseName:"BookStoreDB")
 );
+// Auto Mapper Ayarı
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
