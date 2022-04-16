@@ -1,3 +1,5 @@
+using AutoMapper;
+using WebApi;
 using WebApi.DBOperations;
 
 namespace Webapi.BookOperations.UpdateBook
@@ -7,11 +9,15 @@ namespace Webapi.BookOperations.UpdateBook
 
 
         private readonly BookStoreDBContext _dbContext;
+        private readonly IMapper _mapper;
         public int ID;
         public UpdateBookModels updateBookModels{get;set;}
 
-        public UpdateBooks(BookStoreDBContext dbContext){
+        public UpdateBooks(BookStoreDBContext dbContext, IMapper mapper, UpdateBookModels updateBookModels)
+        {
             this._dbContext = dbContext;
+            this._mapper = mapper;
+            this.updateBookModels = updateBookModels;
         }
 
         public void Handle(){
@@ -22,10 +28,11 @@ namespace Webapi.BookOperations.UpdateBook
                 throw new InvalidOperationException("Güncellemek istediğiniz kitap bulunamadı.");
             }
 
-            book.Title = book.Title != updateBookModels.Title ? updateBookModels.Title:book.Title;
-            book.PageCount = book.PageCount != updateBookModels.PageCount ? updateBookModels.PageCount: book.PageCount;
-            book.PublisDate = book.PublisDate != updateBookModels.PublisDate ? updateBookModels.PublisDate : book.PublisDate;
-            book.GenreId = book.GenreId != updateBookModels.GenreId ? updateBookModels.GenreId : book.GenreId;
+            var nes = _mapper.Map<Book>(updateBookModels);
+
+            book.Title = nes.Title;
+            book.GenreId = nes.GenreId;
+            book.PublisDate = nes.PublisDate;
 
             _dbContext.SaveChanges();
 
@@ -38,7 +45,7 @@ namespace Webapi.BookOperations.UpdateBook
         
         public string? Title { get; set; }
         public int PageCount { get; set; }
-        public DateTime PublisDate {get;set;}
+        public  DateTime PublisDate {get;set;}
         public int GenreId {get;set;}
 
 

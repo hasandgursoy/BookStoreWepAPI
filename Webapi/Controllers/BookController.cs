@@ -1,7 +1,10 @@
 using System.Linq;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Webapi.BookOperations.CreateBook;
+using Webapi.BookOperations.DeleteBook;
 using Webapi.BookOperations.GetBooks;
 using Webapi.BookOperations.GetIdBook;
 using Webapi.BookOperations.UpdateBook;
@@ -58,7 +61,7 @@ namespace Webapi.Controllers
         public IActionResult GetBooks()
         {
 
-            GetBooksQuery query = new GetBooksQuery(_context,_mapper);
+            GetBooksQuery query = new GetBooksQuery(_context, _mapper);
             var result = query.Handle();
             return Ok(result);
         }
@@ -68,11 +71,13 @@ namespace Webapi.Controllers
         public IActionResult GetById(int id)
         {
 
-            GetIdBook vm = new GetIdBook(_context,_mapper);
+            GetIdBook vm = new GetIdBook(_context, _mapper);
+            vm.bookID = id;
 
             try
             {
-                vm.bookID = id;
+                GetIdBookValidator validator = new GetIdBookValidator();
+                validator.ValidateAndThrowAsync(vm);
                 var result = vm.Handle();
                 return Ok(result);
             }
@@ -104,9 +109,20 @@ namespace Webapi.Controllers
 
             try
             {
-                CreateBookCommand command = new CreateBookCommand(_context,_mapper);
+                CreateBookCommand command = new CreateBookCommand(_context, _mapper);
                 command.Model = newBook;
+                CreateBookCommandValidator validator = new CreateBookCommandValidator();
+                // Hata'yı geri dön ekleme yada değiştirme demek için ValidateAndthrow.
+                validator.ValidateAndThrow(command);
                 command.Handle();
+
+                //ValidationResult result = validator.Validate(command);
+                // if (!result.IsValid)
+                //     foreach (var item in result.Errors)
+                //         System.Console.WriteLine("Özellik " + item.PropertyName + " - Error Message: " + item.ErrorMessage);
+                // else
+                //     command.Handle();
+
             }
             catch (Exception ex)
             {
@@ -125,17 +141,20 @@ namespace Webapi.Controllers
 
             try
             {
-                UpdateBooks book = new UpdateBooks(_context);
+                UpdateBooks book = new UpdateBooks(_context,_mapper,updatedBook);
                 book.updateBookModels = updatedBook;
                 book.ID = id;
+                UpdateBookValidator validator = new UpdateBookValidator();
+                validator.ValidateAndThrow(book);
                 book.Handle();
+                return Ok();
             }
             catch (Exception ex)
             {
 
                 return BadRequest(ex.Message);
             }
-            return Ok();
+            
 
 
         }
@@ -147,16 +166,24 @@ namespace Webapi.Controllers
         public IActionResult DeleteBook(int id)
         {
 
-            var book = _context.Books.SingleOrDefault(x => x.ID == id);
-
-            if (book is null)
+            try
             {
-                return BadRequest();
+                DeleteBookCommand dellBook = new DeleteBookCommand(_context, id);
+                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+                validator.ValidateAndThrow(dellBook);
+                dellBook.Handle();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+
             }
 
-            _context.Books.Remove(book);
-            _context.SaveChanges();
-            return Ok();
+
+
+
 
         }
 

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jZWh5gEsU+Vx2va8cHI01jCBvROX5fdNHOumlyHETec7L7YGjewKEb8GhpiM01QUo6LLThNMhiUMdi/9JsPHgw==",
+  "dgSpecHash": "EK8XlpNjwLpxmhyeq2WMumSSH8T1cTFFxiorTQL4dTDEoNbv10SkDJ5KGiOk/p9JDUvgmX6JA1WaMAMdX7f1dw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PENTESTER\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\PENTESTER\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.7.0.0-preview.2.22153.1.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0-preview.2.22153.1\\microsoft.entityframeworkcore.abstractions.7.0.0-preview.2.22153.1.nupkg.sha512",
