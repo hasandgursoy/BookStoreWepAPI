@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Webapi.DBOperations;
+using Webapi.Middlewares;
 using WebApi.DBOperations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +38,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+// Yazdığımız custom middleware'i endpointler çalışmadan önce bu kısımda kullanıcaz.
+app.UseCustomExceptionMiddleware();
+
+app.MapControllers(); // Bu UseEndpoints yerine gelen yapı daha doğrusu ismi değişti neyse.
+
 
 app.Run();

@@ -42,3 +42,4 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Runtime
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Newtonsoft.Json.dll
