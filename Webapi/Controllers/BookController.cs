@@ -74,12 +74,12 @@ namespace Webapi.Controllers
             GetIdBook vm = new GetIdBook(_context, _mapper);
             vm.bookID = id;
 
-            
-                GetIdBookValidator validator = new GetIdBookValidator();
-                validator.ValidateAndThrowAsync(vm);
-                var result = vm.Handle();
-                return Ok(result);
-           
+
+            GetIdBookValidator validator = new GetIdBookValidator();
+            validator.ValidateAndThrowAsync(vm);
+            var result = vm.Handle();
+            return Ok(result);
+
 
 
 
@@ -101,23 +101,23 @@ namespace Webapi.Controllers
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
 
-            
-                CreateBookCommand command = new CreateBookCommand(_context, _mapper);
-                command.Model = newBook;
-                CreateBookCommandValidator validator = new CreateBookCommandValidator();
-                // Hata'yı geri dön ekleme yada değiştirme demek için ValidateAndthrow.
-                // Hata alınırsa artık bunu Oluşturduğumuz CustomMiddleWare'de yakalanıcak.
-                validator.ValidateAndThrow(command);
-                command.Handle();
 
-                //ValidationResult result = validator.Validate(command);
-                // if (!result.IsValid)
-                //     foreach (var item in result.Errors)
-                //         System.Console.WriteLine("Özellik " + item.PropertyName + " - Error Message: " + item.ErrorMessage);
-                // else
-                //     command.Handle();
+            CreateBookCommand command = new CreateBookCommand(_context, _mapper);
+            command.Model = newBook;
+            CreateBookCommandValidator validator = new CreateBookCommandValidator();
+            // Hata'yı geri dön ekleme yada değiştirme demek için ValidateAndthrow.
+            // Hata alınırsa artık bunu Oluşturduğumuz CustomMiddleWare'de yakalanıcak.
+            validator.ValidateAndThrow(command);
+            command.Handle();
 
-            
+            //ValidationResult result = validator.Validate(command);
+            // if (!result.IsValid)
+            //     foreach (var item in result.Errors)
+            //         System.Console.WriteLine("Özellik " + item.PropertyName + " - Error Message: " + item.ErrorMessage);
+            // else
+            //     command.Handle();
+
+
             return Ok();
         }
 
@@ -128,16 +128,16 @@ namespace Webapi.Controllers
         public IActionResult UpdatedBook(int id, [FromBody] UpdateBookModels updatedBook)
         {
 
-            
-                UpdateBooks book = new UpdateBooks(_context,_mapper,updatedBook);
-                book.updateBookModels = updatedBook;
-                book.ID = id;
-                UpdateBookValidator validator = new UpdateBookValidator();
-                validator.ValidateAndThrow(book);
-                book.Handle();
-                return Ok();
-            
-            
+
+            UpdateBooks book = new UpdateBooks(_context, _mapper, updatedBook);
+            book.updateBookModels = updatedBook;
+            book.ID = id;
+            UpdateBookValidator validator = new UpdateBookValidator();
+            validator.ValidateAndThrow(book);
+            book.Handle();
+            return Ok();
+
+
 
 
         }
@@ -149,13 +149,13 @@ namespace Webapi.Controllers
         public IActionResult DeleteBook(int id)
         {
 
-           
-                DeleteBookCommand dellBook = new DeleteBookCommand(_context, id);
-                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
-                validator.ValidateAndThrow(dellBook);
-                dellBook.Handle();
-                return Ok();
-           
+
+            DeleteBookCommand dellBook = new DeleteBookCommand(_context, id);
+            DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+            validator.ValidateAndThrow(dellBook);
+            dellBook.Handle();
+            return Ok();
+
 
 
 
