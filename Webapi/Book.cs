@@ -10,7 +10,7 @@ namespace WebApi
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         public int GenreId { get; set; }
 

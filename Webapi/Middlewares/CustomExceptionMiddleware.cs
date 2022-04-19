@@ -1,17 +1,20 @@
 using System.Diagnostics;
 using System.Net;
 using Newtonsoft.Json;
+using Webapi.Services;
 
 namespace Webapi.Middlewares
 {
 
     public class CustomExceptionMiddleware
-    {
+    {   
+        private readonly ILoggerService _loggerService;
 
         private readonly RequestDelegate _next;
-        public CustomExceptionMiddleware(RequestDelegate next)
+        public CustomExceptionMiddleware(RequestDelegate next, ILoggerService loggerService)
         {
             this._next = next;
+            this._loggerService = loggerService;
         }
 
         public async Task Invoke(HttpContext context)
@@ -23,7 +26,7 @@ namespace Webapi.Middlewares
             try
             {
                 string message = "[Request] HTTP " + context.Request.Method + " - " + context.Request.Path;
-                System.Console.WriteLine(message);
+               _loggerService.Write(message);
 
                 // Request yazdırıldıkdan sonra bir sonraki middleware'e geç dedik.
                 await _next(context);
@@ -31,7 +34,7 @@ namespace Webapi.Middlewares
 
                 // Şimdide Response'da ne olduğunu yazdıralım.
                 message = "[Response] HTTP " + context.Request.Method + " - " + context.Request.Path + " responded " + context.Response.StatusCode + " in " + watch.Elapsed.Milliseconds;
-                System.Console.WriteLine(message);
+                _loggerService.Write(message);
             }
             catch (Exception ex)
             {   

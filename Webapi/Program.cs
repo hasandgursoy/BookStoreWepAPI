@@ -2,6 +2,7 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Webapi.DBOperations;
 using Webapi.Middlewares;
+using Webapi.Services;
 using WebApi.DBOperations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,10 @@ builder.Services.AddDbContext<BookStoreDBContext>(
 );
 // Auto Mapper Ayarı
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+// Oluşturduğumuz Loglama service'i ni DI container'a tanıtıyoruz. Sonra middlewarede kullanıcaz.
+// Başka bir gün bize gelip deselerki DBLogger' olacak tek yapmam gereken consoleLogger yerine DBLogger yazmak.
+builder.Services.AddSingleton<ILoggerService,ConsoleLogger>();
+
 
 var app = builder.Build();
 
