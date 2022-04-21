@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Webapi.Entities;
 using WebApi;
 using WebApi.DBOperations;
 
@@ -17,6 +18,21 @@ namespace Webapi.DBOperations
 
                     return;
                 }
+
+                context.Genres.AddRange(
+                    new Genre{
+                        Name = "Personal Growth"
+
+                    },
+                    new Genre{
+                        Name = "Science Fiction"
+                    },
+                    new Genre{
+                        Name = "Romance"
+                    }
+
+                );
+
                 // Context artık bir data base ve static değil
                 context.Books.AddRange(
                     new Book
