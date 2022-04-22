@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Webapi.Application.BookOperations.Queries.GetIdBook;
 using Webapi.Application.GenreOperations.Commands.CreateGenre;
+using Webapi.Application.GenreOperations.Commands.DeleteGenre;
 using Webapi.Application.GenreOperations.Commands.UpdateGenre;
 using Webapi.Application.GenreOperations.Queries.GetGenresQuery;
 using WebApi.DBOperations;
@@ -62,6 +63,25 @@ namespace Webapi.Controllers
         public IActionResult UpdateGenre(int id,[FromBody] UpdateGenreCommandModel newModel){
             
             UpdateGenreCommand command = new UpdateGenreCommand(_context);
+            command.Model = newModel;
+            command.GenreId = id;
+            UpdateGenreCommandValidator validator = new UpdateGenreCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle();
+            return Ok();
+
+
+        }
+
+        [HttpDelete("{id}")]
+
+        public IActionResult DeleteGenre(int id){
+            DeleteGenreCommand command = new DeleteGenreCommand(_context);
+            command.GenreId = id;
+            DeleteGenreCommandValidator validator = new DeleteGenreCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle();
+            return Ok();
 
         }
 

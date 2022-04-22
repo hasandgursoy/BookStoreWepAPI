@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Webapi.Common;
 using WebApi.DBOperations;
 
@@ -19,7 +20,7 @@ namespace Webapi.BookOperations.GetIdBook
 
         public GetIdBookModel Handle(){
 
-            var book = _dbContext.Books.Where(x => x.ID == bookID).SingleOrDefault();
+            var book = _dbContext.Books.Include(x => x.Genre).Where(x => x.ID == bookID).SingleOrDefault();
             
             if (book is null)
             {
@@ -47,7 +48,7 @@ namespace Webapi.BookOperations.GetIdBook
         public string? Title { get; set; }
         public int PageCount { get; set; }
         public string? PublisDate { get; set; }
-        public string? GenreId { get; set; }
+        public string? Genre { get; set; }
     }
 
 }
