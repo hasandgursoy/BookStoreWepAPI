@@ -31,8 +31,6 @@ namespace Webapi.BookOperations.CreateBook
             // book.PublisDate = Model.PublishDate;
             // book.PageCount = Model.PageCount;
             // book.GenreId = Model.GenreId;
-            
-
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
 

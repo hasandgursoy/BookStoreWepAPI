@@ -109,7 +109,7 @@ namespace Webapi.Controllers
             // Hata alınırsa artık bunu Oluşturduğumuz CustomMiddleWare'de yakalanıcak.
             validator.ValidateAndThrow(command);
             command.Handle();
-
+            return Ok();
             //ValidationResult result = validator.Validate(command);
             // if (!result.IsValid)
             //     foreach (var item in result.Errors)
@@ -118,7 +118,7 @@ namespace Webapi.Controllers
             //     command.Handle();
 
 
-            return Ok();
+            
         }
 
 

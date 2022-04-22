@@ -1,4 +1,7 @@
 using AutoMapper;
+using Webapi.Application.AuthorOperations.Commands.CreateAuthor;
+using Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery;
+using Webapi.Application.AuthorOperations.Queries.GetAuthorsQuery;
 using Webapi.Application.GenreOperations.Queries.GetGenresQuery;
 using Webapi.BookOperations.CreateBook;
 using Webapi.BookOperations.GetBooks;
@@ -18,11 +21,17 @@ namespace Webapi.Common
             // Source - Target
             CreateMap<CreateBookModel, Book>();
             // ForMember() => her satır geldiğinde 
-            CreateMap<Book, GetIdBookModel>().ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
-            CreateMap<Book,BooksViewModel>().ForMember(dest => dest.Genre,opt=> opt.MapFrom(src => src.Genre.Name));
+            CreateMap<Book, GetIdBookModel>().ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name)).ForMember(dest => dest.Author, opt=>opt.MapFrom(src => src.Author.Name+" "+src.Author.SurName));;
+            CreateMap<Book,BooksViewModel>().ForMember(dest => dest.Genre,opt=> opt.MapFrom(src => src.Genre.Name)).ForMember(dest => dest.Author, opt=>opt.MapFrom(src => src.Author.Name+" "+src.Author.SurName));
             CreateMap<UpdateBookModels,Book>();
+            
             CreateMap<Genre,GenresViewModel>();
             CreateMap<Genre,GenresDetailViewModel>();
+
+            CreateMap<Author,AuthorsQueryModel>();
+            CreateMap<Author,AuthorDetailQueryModel>();
+            CreateMap<CreateAuthorCommandModel,Author>();
+            
         }
 
     }
