@@ -35,8 +35,8 @@ namespace Webapi.Controllers
 
         }
 
-        [HttpGet("{id}")]
 
+        [HttpGet("{id}")]
         public IActionResult GetAuthorDetailById(int id){
 
             GetAuthorDetailQuery query = new GetAuthorDetailQuery(_context,_mapper);
@@ -47,8 +47,8 @@ namespace Webapi.Controllers
             return Ok(obj);
         }
 
+        
         [HttpPost]
-
         public IActionResult AddAuthor([FromBody] CreateAuthorCommandModel newModel){
 
             CreateAuthorCommand command = new CreateAuthorCommand(_context,_mapper);

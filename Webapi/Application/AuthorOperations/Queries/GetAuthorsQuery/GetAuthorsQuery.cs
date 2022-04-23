@@ -32,6 +32,7 @@ namespace Webapi.Application.AuthorOperations.Queries.GetAuthorsQuery
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public string? DateOfBirth  { get; set; }
+        public bool IsBookPublished { get; set; }
     }
 
 }

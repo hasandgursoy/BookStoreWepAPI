@@ -1,4 +1,5 @@
 using AutoMapper;
+using Webapi.Entities;
 using WebApi.DBOperations;
 
 namespace Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery
@@ -17,7 +18,7 @@ namespace Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery
         public AuthorDetailQueryModel Handle()
         {
 
-            var author = _context.Authors.Where(x => x.Id == AuthorID);
+            var author = _context.Authors.SingleOrDefault(x => x.Id == AuthorID);
 
             if (author is null)
             {
@@ -37,5 +38,6 @@ namespace Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public string? DateOfBirth { get; set; }
+        public bool IsBookPublished {get;set;} = true;
     }
 }

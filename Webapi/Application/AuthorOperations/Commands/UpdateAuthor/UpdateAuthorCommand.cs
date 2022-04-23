@@ -25,7 +25,7 @@ namespace Webapi.Application.AuthorOperations.Commands.UpdateAuthor
             author.Name = string.IsNullOrEmpty(Model.Name.Trim()) || author.Name == Model.Name ? author.Name : Model.Name;
             author.SurName = string.IsNullOrEmpty(Model.SurName.Trim()) || author.SurName == Model.SurName ? author.SurName : Model.SurName;
             author.DateOfBirth = string.IsNullOrEmpty(Model.DateOfBirth.ToString()) || author.DateOfBirth == author.DateOfBirth ? author.DateOfBirth : Model.DateOfBirth;
-            
+            author.IsBookPublished = Model.IsBookPublished;
 
             _context.SaveChanges();
 
@@ -37,6 +37,7 @@ namespace Webapi.Application.AuthorOperations.Commands.UpdateAuthor
         public string? Name { get; set; }
         public string? SurName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public bool IsBookPublished { get; set; }
 
     }
 }

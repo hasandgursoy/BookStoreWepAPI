@@ -47,7 +47,7 @@ namespace Webapi.BookOperations.GetIdBook
         
         public string? Title { get; set; }
         public int PageCount { get; set; }
-        public string? PublisDate { get; set; }
+        public DateTime PublisDate { get; set; }
         public string? Genre { get; set; }
         public string?  Author { get; set; }
     }

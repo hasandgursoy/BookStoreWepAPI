@@ -48,5 +48,4 @@ app.UseCustomExceptionMiddleware();
 
 app.MapControllers(); // Bu UseEndpoints yerine gelen yapı daha doğrusu ismi değişti neyse.
 
-
 app.Run();

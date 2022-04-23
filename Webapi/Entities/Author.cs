@@ -6,9 +6,10 @@ namespace Webapi.Entities
     {   
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id {get;set;}
+
         public string? Name { get; set; }
         public string? SurName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public bool IsBookPublished {get;set;} = false;
+        public bool IsBookPublished {get;set;} = true;
     }
 }

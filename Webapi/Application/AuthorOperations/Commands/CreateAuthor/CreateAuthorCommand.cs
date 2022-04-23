@@ -9,7 +9,7 @@ namespace Webapi.Application.AuthorOperations.Commands.CreateAuthor
 
         private readonly BookStoreDBContext _context;
         private readonly IMapper _mapper;
-        public CreateAuthorCommandModel Model;
+        public CreateAuthorCommandModel Model{get;set;}
         
         public CreateAuthorCommand(BookStoreDBContext context, IMapper mapper)
         {
@@ -19,10 +19,10 @@ namespace Webapi.Application.AuthorOperations.Commands.CreateAuthor
 
         public void Handle()
         {
-            var author = _context.Authors.SingleOrDefault(x => x.Name.Trim().ToLower() != Model.Name.Trim().ToLower() && x.SurName.Trim().ToLower() != Model.SurName.Trim().ToLower());
-            if (author is null)
+            var author = _context.Authors.SingleOrDefault(x => x.Name == Model.Name &&  x.SurName == Model.SurName);
+            if (author is not null)
             {
-                throw new InvalidOperationException("İsim bulunamadı.");
+                throw new InvalidOperationException("Eklenecek yazar zaten mevcut.");
             }
 
             Author query = _mapper.Map<Author>(Model);
@@ -36,6 +36,7 @@ namespace Webapi.Application.AuthorOperations.Commands.CreateAuthor
         public string? Name { get; set; }
         public string? SurName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public bool IsBookPublished {get;set;} = true;
     }
 
 }
