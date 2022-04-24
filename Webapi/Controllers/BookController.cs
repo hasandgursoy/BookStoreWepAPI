@@ -8,6 +8,7 @@ using Webapi.BookOperations.DeleteBook;
 using Webapi.BookOperations.GetBooks;
 using Webapi.BookOperations.GetIdBook;
 using Webapi.BookOperations.UpdateBook;
+using Webapi.DBOperations;
 using WebApi;
 using WebApi.DBOperations;
 
@@ -18,10 +19,10 @@ namespace Webapi.Controllers
     [Route("[controller]s")]
     public class BookController : ControllerBase
     {
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         private readonly IMapper _mapper;
 
-        public BookController(BookStoreDBContext context, IMapper mapper)
+        public BookController(IBookStoreDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

@@ -1,13 +1,14 @@
+using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.BookOperations.DeleteBook
 {
     public class DeleteBookCommand
     {
-        private readonly BookStoreDBContext _dbContext;
+        private readonly IBookStoreDBContext _dbContext;
         public int _id {get;set;} 
 
-        public DeleteBookCommand(BookStoreDBContext dBContext, int id){
+        public DeleteBookCommand(IBookStoreDBContext dBContext, int id){
             this._dbContext = dBContext;
             this._id = id;
         }

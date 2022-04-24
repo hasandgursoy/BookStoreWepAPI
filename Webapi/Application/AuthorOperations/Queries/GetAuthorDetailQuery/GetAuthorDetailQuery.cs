@@ -1,4 +1,5 @@
 using AutoMapper;
+using Webapi.DBOperations;
 using Webapi.Entities;
 using WebApi.DBOperations;
 
@@ -6,10 +7,10 @@ namespace Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery
 {
     public class GetAuthorDetailQuery
     {
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         private readonly IMapper _mapper;
         public int AuthorID { get; set; }
-        public GetAuthorDetailQuery(BookStoreDBContext context, IMapper mapper)
+        public GetAuthorDetailQuery(IBookStoreDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

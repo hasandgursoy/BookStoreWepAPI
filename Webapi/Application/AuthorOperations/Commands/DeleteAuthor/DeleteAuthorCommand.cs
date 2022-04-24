@@ -1,3 +1,4 @@
+using Webapi.DBOperations;
 using Webapi.Entities;
 using WebApi.DBOperations;
 
@@ -5,11 +6,11 @@ namespace Webapi.Application.AuthorOperations.Commands.DeleteAuthor
 {
     public class DeleteAuthorCommand
     {
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         public int AuthorID { get; set; }
 
 
-        public DeleteAuthorCommand(BookStoreDBContext context)
+        public DeleteAuthorCommand(IBookStoreDBContext context)
         {
             _context = context;
         }

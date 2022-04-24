@@ -17,6 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BookStoreDBContext>(
     options=>options.UseInMemoryDatabase(databaseName:"BookStoreDB")
 );
+// Interface olarak tanımladığımız yapıyı inject ediyoruz. Böylelikle ilerde hızlıca değişim gerçekleşebilecek.
+builder.Services.AddScoped<IBookStoreDBContext>(provider => provider.GetService<BookStoreDBContext>());
 // Auto Mapper Ayarı
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Oluşturduğumuz Loglama service'i ni DI container'a tanıtıyoruz. Sonra middlewarede kullanıcaz.

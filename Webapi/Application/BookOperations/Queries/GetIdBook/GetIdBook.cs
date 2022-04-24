@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Webapi.Common;
+using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.BookOperations.GetIdBook
@@ -9,10 +10,10 @@ namespace Webapi.BookOperations.GetIdBook
     public class GetIdBook
     {
         public int bookID { get; set; }
-        private readonly BookStoreDBContext _dbContext;
+        private readonly IBookStoreDBContext _dbContext;
         private readonly IMapper _mapper;
 
-        public GetIdBook(BookStoreDBContext dBContext, IMapper mapper)
+        public GetIdBook(IBookStoreDBContext dBContext, IMapper mapper)
         {
             this._dbContext = dBContext;
             _mapper = mapper;

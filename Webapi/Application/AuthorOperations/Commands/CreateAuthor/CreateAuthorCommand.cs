@@ -1,4 +1,5 @@
 using AutoMapper;
+using Webapi.DBOperations;
 using Webapi.Entities;
 using WebApi.DBOperations;
 
@@ -7,11 +8,11 @@ namespace Webapi.Application.AuthorOperations.Commands.CreateAuthor
     public class CreateAuthorCommand
     {
 
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         private readonly IMapper _mapper;
         public CreateAuthorCommandModel Model{get;set;}
         
-        public CreateAuthorCommand(BookStoreDBContext context, IMapper mapper)
+        public CreateAuthorCommand(IBookStoreDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

@@ -1,3 +1,4 @@
+using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.Application.GenreOperations.Commands.UpdateGenre
@@ -5,9 +6,9 @@ namespace Webapi.Application.GenreOperations.Commands.UpdateGenre
     public class UpdateGenreCommand
     {   
         public int GenreId  {get;set;}
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         public UpdateGenreCommandModel Model{get;set;}
-        public UpdateGenreCommand(BookStoreDBContext context)
+        public UpdateGenreCommand(IBookStoreDBContext context)
         {
             _context = context;
             

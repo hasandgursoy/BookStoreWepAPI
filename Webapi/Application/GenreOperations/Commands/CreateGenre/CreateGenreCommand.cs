@@ -1,3 +1,4 @@
+using Webapi.DBOperations;
 using Webapi.Entities;
 using WebApi.DBOperations;
 
@@ -5,9 +6,9 @@ namespace Webapi.Application.GenreOperations.Commands.CreateGenre
 {
     public class CreateGenreCommand
     {   
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         public CreateGenreModel Model {get;set;}
-        public CreateGenreCommand(BookStoreDBContext context)
+        public CreateGenreCommand(IBookStoreDBContext context)
         {
             _context = context;
             

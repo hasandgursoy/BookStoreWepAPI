@@ -1,4 +1,5 @@
 using AutoMapper;
+using Webapi.DBOperations;
 using WebApi;
 using WebApi.DBOperations;
 
@@ -8,12 +9,12 @@ namespace Webapi.BookOperations.UpdateBook
     public class UpdateBooks{
 
 
-        private readonly BookStoreDBContext _dbContext;
+        private readonly IBookStoreDBContext _dbContext;
         private readonly IMapper _mapper;
         public int ID;
         public UpdateBookModels updateBookModels{get;set;}
 
-        public UpdateBooks(BookStoreDBContext dbContext, IMapper mapper, UpdateBookModels updateBookModels)
+        public UpdateBooks(IBookStoreDBContext dbContext, IMapper mapper, UpdateBookModels updateBookModels)
         {
             this._dbContext = dbContext;
             this._mapper = mapper;

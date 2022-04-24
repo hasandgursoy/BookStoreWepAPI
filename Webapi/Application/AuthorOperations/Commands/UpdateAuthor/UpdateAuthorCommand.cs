@@ -1,3 +1,4 @@
+using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.Application.AuthorOperations.Commands.UpdateAuthor
@@ -6,9 +7,9 @@ namespace Webapi.Application.AuthorOperations.Commands.UpdateAuthor
     public class UpdateAuthorCommand
     {
         public int AuthorID { get; set; }
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         public UpdateAuthorCommandModel Model { get; set; }
-        public UpdateAuthorCommand(BookStoreDBContext context)
+        public UpdateAuthorCommand(IBookStoreDBContext context)
         {
             _context = context;
         }

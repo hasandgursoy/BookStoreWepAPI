@@ -6,6 +6,7 @@ using Webapi.Application.AuthorOperations.Commands.DeleteAuthor;
 using Webapi.Application.AuthorOperations.Commands.UpdateAuthor;
 using Webapi.Application.AuthorOperations.Queries.GetAuthorDetailQuery;
 using Webapi.Application.AuthorOperations.Queries.GetAuthorsQuery;
+using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.Controllers
@@ -16,10 +17,10 @@ namespace Webapi.Controllers
     public class AuthorController:ControllerBase
     {
 
-        private readonly BookStoreDBContext _context;
+        private readonly IBookStoreDBContext _context;
         private readonly IMapper _mapper;
 
-        public AuthorController(BookStoreDBContext context, IMapper mapper)
+        public AuthorController(IBookStoreDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
