@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x3ngbndkL2od3V1orR1k6bGx97btG50C+xEuSGPHjS+fZzMbE7/f9hhR6EwRrlY3wazzeE0hSPk54rZhwvMsoA==",
+  "dgSpecHash": "4Avxt8AIMHamZlGc4Nc6Pla2G/EEjn1CLL+7TOfi64eazkg/7FToKHikq7HBXPSQEu/0Zzs0OzvOt/jlrpZvVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
+  "projectFilePath": "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PENTESTER\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\PENTESTER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

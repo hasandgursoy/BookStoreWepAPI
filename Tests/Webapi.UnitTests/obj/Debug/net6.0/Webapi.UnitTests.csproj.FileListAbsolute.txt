@@ -47,7 +47,6 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\xunit.abstractions.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\xunit.assert.dll
