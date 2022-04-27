@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Webapi.Application.UserOperations.Commands.CreateToken;
 using Webapi.Application.UserOperations.Commands.CreateUserCommand;
+using Webapi.Application.UserOperations.Commands.RefreshToken;
 using Webapi.DBOperations;
 using Webapi.TokenOperations.Models;
 
@@ -46,6 +47,16 @@ namespace Webapi.Controllers
             var token = command.Handle();
             return token;
 
+        }
+
+        [HttpGet("refreshToken")]
+
+        public ActionResult<Token> RefreshToken([FromQuery] string token){
+
+            RefreshTokenCommand command = new RefreshTokenCommand(_dbContext,_configuration);
+            command.RefreshToken = token;
+            var resultToken = command.Handle();
+            return resultToken;
         }
 
     }
