@@ -15,15 +15,23 @@ var builder = WebApplication.CreateBuilder(args);
 //Authantication Ekliyoruz en başta yapılması gerekiyor.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
+    // Tokenın nasıl valide edileceğinin paremetrelerini veriyoruz.
     opt.TokenValidationParameters = new TokenValidationParameters
     {
+        // Benim token'ımı kimler kullana bilir.Client'ım kimlerdir.
         ValidateAudience = true,
+        // Token'ın sağlayıcısı, dağıtıcısı kimlerdir.
         ValidateIssuer = true,
+        // Token LifeTime'ını kontrol et. Lifetime tamamlandıysa token expire olsun ve yetkilendirmeyi kapat.
         ValidateLifetime = true,
+        // Token'ı kriptolayacağımız, imzalayacağımız key anahtar.
         ValidateIssuerSigningKey = true,
+        // Tokenın yaratılırken ki Issuer 'ı aşşağıdaki Issuer'dır.
         ValidIssuer = builder.Configuration["Token:Issuer"],
+        // Tokenın Audience 'ı aşşağıdaki configurationdan gelecek.
         ValidAudience = builder.Configuration["Token:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+        // Tokenen üretildiği sunucunun time zone ile token'ı kullanacak olan client'ların time zone'ı farklı olduğunda token'ın adil bir şekilde dağıtılmasını sağlar.
         ClockSkew = TimeSpan.Zero
     };
 });
@@ -31,10 +39,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 // Oluşturulan inmemoryDb nin projeye bağlanması.
 builder.Services.AddDbContext<BookStoreDBContext>(
-    options=>options.UseInMemoryDatabase(databaseName:"BookStoreDB")
+    options => options.UseInMemoryDatabase(databaseName: "BookStoreDB")
 );
 // Interface olarak tanımladığımız yapıyı inject ediyoruz. Böylelikle ilerde hızlıca değişim gerçekleşebilecek.
 builder.Services.AddScoped<IBookStoreDBContext>(provider => provider.GetService<BookStoreDBContext>());
@@ -42,15 +51,16 @@ builder.Services.AddScoped<IBookStoreDBContext>(provider => provider.GetService<
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Oluşturduğumuz Loglama service'i ni DI container'a tanıtıyoruz. Sonra middlewarede kullanıcaz.
 // Başka bir gün bize gelip deselerki DBLogger' olacak tek yapmam gereken consoleLogger yerine DBLogger yazmak.
-builder.Services.AddSingleton<ILoggerService,ConsoleLogger>();
+builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 
 
 var app = builder.Build();
 
 // app her çalıştığında DataGenerator başlatılsın.
-using (var scope = app.Services.CreateScope()){
-var services = scope.ServiceProvider;
-DataGenerator.Inıtialize(services);
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    DataGenerator.Inıtialize(services);
 }
 
 // Configure the HTTP request pipeline.

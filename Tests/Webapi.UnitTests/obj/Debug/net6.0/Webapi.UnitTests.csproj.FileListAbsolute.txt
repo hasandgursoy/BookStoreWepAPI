@@ -131,3 +131,10 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\obj\Debug\net6.
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\obj\Debug\net6.0\Webapi.UnitTests.pdb
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\obj\Debug\net6.0\Webapi.UnitTests.genruntimeconfig.cache
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\obj\Debug\net6.0\ref\Webapi.UnitTests.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Tests\Webapi.UnitTests\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

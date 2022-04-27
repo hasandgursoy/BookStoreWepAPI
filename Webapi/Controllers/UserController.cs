@@ -1,15 +1,53 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Webapi.Application.UserOperations.Commands.CreateToken;
+using Webapi.Application.UserOperations.Commands.CreateUserCommand;
+using Webapi.DBOperations;
+using Webapi.TokenOperations.Models;
 
 namespace Webapi.Controllers
 {
-    
-    [ApiController]
-    [Route("[Controller]s")]
 
-    public class UserController: ControllerBase
+    [ApiController]
+    [Route("[controller]s")]
+    public class UserController : ControllerBase
     {
-        
-        
+
+        private readonly IBookStoreDBContext _dbContext;
+        private readonly IMapper _mapper;
+        // IConfiguration appsettings.json dosyasındaki verilere ulaşmamızı sağlıyor.
+        private IConfiguration _configuration;
+
+
+        public UserController(IBookStoreDBContext dbContext, IMapper mapper, IConfiguration configuration)
+        {
+            _dbContext = dbContext;
+            _mapper = mapper;
+            _configuration = configuration;
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateUserModel model)
+        {
+
+            CreateUserCommand command = new CreateUserCommand(_dbContext,_mapper);
+            command.Model = model;
+            command.Handle();
+            return Ok();
+
+        }
+
+        [HttpPost("connect/token")]
+
+        public ActionResult<Token> Createtoken([FromBody] CreateTokenModel model){
+
+            CreateTokenCommand command = new CreateTokenCommand(_configuration,_mapper,_dbContext);
+            command.Model = model;
+            var token = command.Handle();
+            return token;
+
+        }
 
     }
+
 }

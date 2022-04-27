@@ -2,6 +2,7 @@ using System.Linq;
 using AutoMapper;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Webapi.BookOperations.CreateBook;
 using Webapi.BookOperations.DeleteBook;
@@ -14,7 +15,7 @@ using WebApi.DBOperations;
 
 namespace Webapi.Controllers
 {
-
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class BookController : ControllerBase

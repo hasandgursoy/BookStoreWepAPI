@@ -43,3 +43,10 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\refint\Webapi.
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.pdb
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.genruntimeconfig.cache
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\ref\Webapi.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
