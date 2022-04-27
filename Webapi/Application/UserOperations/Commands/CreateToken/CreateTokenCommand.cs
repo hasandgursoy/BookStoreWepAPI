@@ -31,7 +31,7 @@ namespace Webapi.Application.UserOperations.Commands.CreateToken
 
                 // Create a Token
                 TokenHandler handler = new TokenHandler(_configuration);
-                Token token = handler.CreateAccesToken(user);
+                Token token = handler.CreateAccesToken();
                 user.RefreshToken = token.RefreshToken;
                 user.RefreshTokenExpireDate = token.Expiration.AddMinutes(5);
                 _dbContext.SaveChanges();

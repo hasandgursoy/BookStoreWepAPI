@@ -19,7 +19,7 @@ namespace Webapi.TokenOperations
         }
 
         // User'a göre token dönen bir method yazalım.
-        public Token CreateAccesToken(User user)
+        public Token CreateAccesToken()
         {
 
             Token tokenModel = new Token();
