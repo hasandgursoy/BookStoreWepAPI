@@ -8,6 +8,7 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Webapi.pdb
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
@@ -19,6 +20,11 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.Exte
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -26,6 +32,7 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Swashbuckle.As
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.csproj.AssemblyReference.cache
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.GeneratedMSBuildEditorConfig.editorconfig
@@ -43,10 +50,3 @@ C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\refint\Webapi.
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.pdb
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\Webapi.genruntimeconfig.cache
 C:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\obj\Debug\net6.0\ref\Webapi.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-c:\Users\PENTESTER\Desktop\NET6\BookStore\Webapi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

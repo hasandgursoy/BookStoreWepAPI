@@ -1,7 +1,6 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Webapi.Common;
-using Webapi.DBOperations;
 using WebApi.DBOperations;
 
 namespace Webapi.UnitTests.TestSetup
@@ -21,6 +20,7 @@ namespace Webapi.UnitTests.TestSetup
             Context.AddBooks();
             Context.AddGenres();
             Context.AddAuthors();
+            Context.AddUsers();
             Context.SaveChanges();
 
             Mapper = new MapperConfiguration(config => {config.AddProfile<MappingProfile>();}).CreateMapper();

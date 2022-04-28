@@ -33,6 +33,8 @@ namespace Webapi.Controllers
 
             CreateUserCommand command = new CreateUserCommand(_dbContext,_mapper);
             command.Model = model;
+            CreateUserValidator valdiator = new CreateUserValidator();
+            valdiator.Validate(command);
             command.Handle();
             return Ok();
 
@@ -44,6 +46,8 @@ namespace Webapi.Controllers
 
             CreateTokenCommand command = new CreateTokenCommand(_configuration,_mapper,_dbContext);
             command.Model = model;
+            CreateTokenValidator validator = new CreateTokenValidator();
+            validator.Validate(command);
             var token = command.Handle();
             return token;
 
@@ -55,6 +59,8 @@ namespace Webapi.Controllers
 
             RefreshTokenCommand command = new RefreshTokenCommand(_dbContext,_configuration);
             command.RefreshToken = token;
+            RefreshTokenValidator valdiator = new RefreshTokenValidator();
+            valdiator.Validate(command);
             var resultToken = command.Handle();
             return resultToken;
         }
