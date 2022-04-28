@@ -49,7 +49,7 @@ namespace Webapi.Controllers
 
         }
 
-        [HttpGet("refreshToken")]
+        [HttpGet("refreshtoken")]
 
         public ActionResult<Token> RefreshToken([FromQuery] string token){
 

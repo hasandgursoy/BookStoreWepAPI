@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj": {}
+    "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj": {
+    "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
+        "projectUniqueName": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
         "projectName": "Webapi",
-        "projectPath": "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
+        "projectPath": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\Webapi.csproj",
         "packagesPath": "C:\\Users\\PENTESTER\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\obj\\",
+        "outputPath": "C:\\Users\\PENTESTER\\Desktop\\NET6\\BookStore\\Webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PENTESTER\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,7 +8,7 @@ namespace Webapi.TokenOperations.Models
 
         public string AccesToken { get; set; }
         public DateTime Expiration { get; set; }
-        public string? RefreshToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 
 
